@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #181717;
+    --main-text: #ee165e;
+    --p-text: #9ac4e6;
+    --input-text: #04c0b0;
+}
+
+body {
+    background: var(--bg-color);
+    width: 100%;
+    margin: 0 auto;
+}
+.window {
+    margin: 5rem;
+}
+.window h1 {
+    color: var(--main-text);
+    text-align: center;
+}
+.twoColPanel {
+    width: 100%;
+    height: 50vh;
+    margin-top: 7rem;
+    display: grid;
+    grid-auto-flow: column;
+}
+.inputPanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 5rem;
+}
+.message, .user {
+    text-align: center;
+    color: var(--p-text);
+}
+.lTitle {
+    color: var(--p-text);
+    font-size: 1.2rem;
+}
+.input {
+    border: 1px solid #ee165e;
+    height: 15vh;
+    width: 15vh;
+    border-radius: 100%;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--input-text);
+}
+.checkBtn {
+    width: 12rem;
+    height: 3rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background: var(--main-text);
+    border: none;
+    border-radius: 10px;
+    color: var(--p-text);
+    margin-left: 17vh;
+}

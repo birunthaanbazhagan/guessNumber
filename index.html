@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+   
+    <div id="container">
+      <div class="window">
+        <h1>Guess the number between 1 to 100 !!!</h1>
+        <div class="twoColPanel">
+          <div class="thinkImg">
+            <img src="./asssets/images/28741-e91e63.svg" alt="think" />
+          </div>
+          <div class="gameView">
+              <div class="inputPanel">
+                <div class="user">
+                  <label class="lTitle">Guess Number ?</label><br />
+                  <input class="input" id="userInput" type="text" placeholder="?"/>
+                </div>
+                <div class="message">
+                    <p id="turns">Turns left: <span id="totalturns"></span> </p>
+                    <p id="guesses">Guessed Number is : </p>
+                    <p id="message"></p>
+                </div>
+              </div>
+
+              <button onclick="check()" class="checkBtn">Check</button>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        let messageEl = document.querySelector("#message");
+        let totalturns = document.querySelector("#totalturns");
+        
+
+
+        let randomNum = Math.trunc(Math.random() * 10) + 1;
+        
+        let turns = 10;
+        
+        function check() {
+            
+            let userInput = document.querySelector("#userInput").value;
+            if(userInput<1 || userInput>100)
+            {
+                messageEl.textContent = ("Enter number between 1 to 100");
+            }
+            else 
+            {     
+                turns=turns-1;        
+                if(userInput<randomNum)
+                {
+                    message.textContent = ("Guessed lower value");
+                    turns.textContent = `Turns Left: ${turns}`;
+                    guesses.textContent = `Guessed Number is :  ${userInput}`; 
+                    totalturns.innerHTML=turns;
+                }
+                else if(userInput>randomNum)
+                {
+                    message.textContent = ("Guessed Higher value");
+                    turns.textContent = `Turns Left: ${turns}` ;
+                    guesses.textContent = `Guessed Numbers are : ${userInput}`; 
+                    totalturns.innerHTML=turns;
+                }
+                else if(userInput===randomNum)
+                {
+                    message.textContent = ("You won");
+                    turns.textContent = `Turns attempted: ${turns}` ;
+                    guesses.textContent = `Guessed Number is : ${userInput}`;
+                    // totalturns.innerHTML=turns;
+                }
+                if(turns<=0)
+                {
+                    location.replace("./index.html");
+                }
+            }
+        }   
+    </script>
+
+  </body>
+</html>
